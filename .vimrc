@@ -58,6 +58,40 @@ inoremap <C-a> <Esc>^i
 noremap <C-e> $
 noremap <C-a> ^
 
-
 " 前回のカーソル位置の復元
 autocmd BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" カーソル行の背景色変化
+set cursorline
+
+" スクロール時の行数指定
+set scrolloff=5
+
+" 検索結果の対象を中央に表示
+nmap n nzz
+nmap N Nzz
+nmap * *zz
+nmap # #zz
+nmap g* g*zz
+nmap g# g#zz
+
+" インサートモードから抜ける時に便利なキーバインド
+inoremap <silent> jj <ESC>
+
+" 全角スペースの可視化
+function! ZenkakuSpace()
+    highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
+endfunction
+
+if has('syntax')
+    augroup ZenkakuSpace
+            autocmd!
+	    autocmd ColorScheme * call ZenkakuSpace()
+            autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
+     augroup END
+     call ZenkakuSpace()
+endif
+
+" ヤンクしたデータをクリップボードへ
+"set clipboard=unnamed,autoselect
+
