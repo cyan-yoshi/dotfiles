@@ -95,3 +95,13 @@ endif
 " ヤンクしたデータをクリップボードへ
 "set clipboard=unnamed,autoselect
 
+"From Urushida Teacher
+augroup  RAT
+    autocmd!
+    "autocmd FileType text :highlight IRCNotice cterm=bold ctermfg=40
+    "autocmd FileType text :match IRCNotice /^\v\d\d:\d\d\s\(.*$/
+    "autocmd FileType text :highlight BlankLine cterm=bold ctermbg=40
+    "autocmd FileType text :match BlankLine /^$/
+    autocmd FileType text :highlight FSWikiTopList cterm=bold ctermfg=226
+    autocmd FileType text :match FSWikiTopList /^\*\s.*$/
+augroup END
