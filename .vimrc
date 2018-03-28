@@ -12,8 +12,8 @@ set nocompatible
 " souece $VIMRUNTIME/syntax/syntax.vim
 syntax enable
 
-"colorscheme desert
-colorscheme wombat256mod
+colorscheme desert
+"colorscheme wombat256mod
 
 "行が折り返し表示されていた場合、行単位ではなく表示単位でカーソルを移動する
 "nnoremap j gj
@@ -62,7 +62,7 @@ noremap <C-a> ^
 autocmd BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " カーソル行の背景色変化
-set cursorline
+"set cursorline
 
 " スクロール時の行数指定
 set scrolloff=5
