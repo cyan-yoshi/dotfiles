@@ -47,7 +47,7 @@ set mouse=a
 set hlsearch
 
 "自動的にインデント
-set autoindent
+"set autoindent
 
 " x でも字を消した時クリップボードに保存しない
 noremap x "_x
@@ -111,4 +111,35 @@ augroup  RAT
     "autocmd FileType text :match BlankLine /^$/
     autocmd FileType text :highlight FSWikiTopList cterm=bold ctermfg=226
     autocmd FileType text :match FSWikiTopList /^\*\s.*$/
+
+"From Urushida Teacher
+augroup  RAT_TASK
+    autocmd!
+    "autocmd FileType text :highlight IRCNotice cterm=bold ctermfg=40
+    "autocmd FileType text :match IRCNotice /^\v\d\d:\d\d\s\(.*$/
+    "autocmd FileType text :highlight BlankLine cterm=bold ctermbg=40
+    "autocmd FileType text :match BlankLine /^$/
+    autocmd FileType text :highlight FSWikiTopList cterm=bold ctermfg=226
+    autocmd FileType text :match FSWikiTopList '^\*\s.*$'
+
+"    autocmd FileType text :highlight towyear cterm=bold ctermfg=4
+"    autocmd Filetype text :2match towyear '^\\s\d*/\d*/\d*\s\d*:\d*:\d*\s\|\skunim.*i\s\|\s$'
+"    autocmd Filetype text :3match towyear '^\\s\d*/\d*/\d*\s\d*:\d*:\d*\s\|\sishikaw.*a\s\|\s$'
+"    autocmd Filetype text :4match towyear '^\\s\d*/\d*/\d*\s\d*:\d*:\d*\s\|\ssakura.*i\s\|\s$'
+"
+"    autocmd FileType text :highlight tyear cterm=bold ctermfg=83
+"    autocmd Filetype text :5match tyear '^\\s\d*/\d*/\d*\s\d*:\d*:\d*\s\|\skobayash.*i\s\|\s$'
+"    autocmd Filetype text :6match tyear '^\\s\d*/\d*/\d*\s\d*:\d*:\d*\s\|\syoshitan.*i\s\|\s$'
+"augroup END
+
+"augroup  RAT_2
+    autocmd FileType text :highlight towyear cterm=bold ctermfg=4
+    autocmd Filetype text :2match towyear '^\\s\d*/\d*/\d*\s\d*:\d*:\d*\s\|\s\(kunimi\|ishikawa\|sakurai\|yoshitani\|kobayashi\)\s\|\s$'
+"    autocmd Filetype text :2match towyear '^\\s\d*/\d*/\d*\s\d*:\d*:\d*\s\|\sishikaw.*a\s\|\s$'
+"    autocmd Filetype text :3match towyear '^\\s\d*/\d*/\d*\s\d*:\d*:\d*\s\|\ssakura.*i\s\|\s$'
+"augroup END
+
+"augroup  RAT_3
+    autocmd FileType text :highlight tyear cterm=bold ctermfg=83
+    autocmd Filetype text :3match tyear '^\\s\d*/\d*/\d*\s\d*:\d*:\d*\s\|\s\(yoshitani\|kobayashi\)\s\|\s$'
 augroup END
