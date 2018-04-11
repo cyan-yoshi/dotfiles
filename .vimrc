@@ -95,6 +95,13 @@ endif
 " ヤンクしたデータをクリップボードへ
 "set clipboard=unnamed,autoselect
 
+" 縦分割
+nnoremap sv :<C-u>vs<CR>
+nnoremap sl <C-w>l
+nnoremap sk <C-w>k
+nnoremap sj <C-w>j
+nnoremap sh <C-w>h
+
 "From Urushida Teacher
 augroup  RAT
     autocmd!
