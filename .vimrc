@@ -58,11 +58,12 @@ inoremap <C-a> <Esc>^i
 noremap <C-e> $
 noremap <C-a> ^
 
+" C-h で一行下、C-l で一行上
+noremap <C-l> <C-y>
+noremap <C-h> <C-e>
+
 " 前回のカーソル位置の復元
 autocmd BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! g'\"" | endif
-
-" カーソル行の背景色変化
-"set cursorline
 
 " スクロール時の行数指定
 set scrolloff=5
@@ -75,7 +76,7 @@ nmap # #zz
 nmap g* g*zz
 nmap g# g#zz
 
-" インサートモードから抜ける時に便利なキーバインド
+" インサートモードから抜けるキーバインド
 inoremap <silent> jj <ESC>
 
 " 全角スペースの可視化
@@ -92,8 +93,11 @@ if has('syntax')
      call ZenkakuSpace()
 endif
 
-" ヤンクしたデータをクリップボードへ
-"set clipboard=unnamed,autoselect
+" クリップボード共有
+set clipboard+=unnamedplus
+
+" 横分割
+nnoremap ss :<C-u>sp<CR>
 
 " 縦分割
 nnoremap sv :<C-u>vs<CR>
@@ -102,44 +106,18 @@ nnoremap sk <C-w>k
 nnoremap sj <C-w>j
 nnoremap sh <C-w>h
 
-"From Urushida Teacher
-augroup  RAT
-    autocmd!
-    "autocmd FileType text :highlight IRCNotice cterm=bold ctermfg=40
-    "autocmd FileType text :match IRCNotice /^\v\d\d:\d\d\s\(.*$/
-    "autocmd FileType text :highlight BlankLine cterm=bold ctermbg=40
-    "autocmd FileType text :match BlankLine /^$/
-    autocmd FileType text :highlight FSWikiTopList cterm=bold ctermfg=226
-    autocmd FileType text :match FSWikiTopList /^\*\s.*$/
+" s[H|J|K|L] で窓移動&入れ替え
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sH <C-w>H
 
-"From Urushida Teacher
-augroup  RAT_TASK
-    autocmd!
-    "autocmd FileType text :highlight IRCNotice cterm=bold ctermfg=40
-    "autocmd FileType text :match IRCNotice /^\v\d\d:\d\d\s\(.*$/
-    "autocmd FileType text :highlight BlankLine cterm=bold ctermbg=40
-    "autocmd FileType text :match BlankLine /^$/
-    autocmd FileType text :highlight FSWikiTopList cterm=bold ctermfg=226
-    autocmd FileType text :match FSWikiTopList '^\*\s.*$'
+" 大文字でも終了できるように
+command Q q
+command Wq wq
+command WQ wq
 
-"    autocmd FileType text :highlight towyear cterm=bold ctermfg=4
-"    autocmd Filetype text :2match towyear '^\\s\d*/\d*/\d*\s\d*:\d*:\d*\s\|\skunim.*i\s\|\s$'
-"    autocmd Filetype text :3match towyear '^\\s\d*/\d*/\d*\s\d*:\d*:\d*\s\|\sishikaw.*a\s\|\s$'
-"    autocmd Filetype text :4match towyear '^\\s\d*/\d*/\d*\s\d*:\d*:\d*\s\|\ssakura.*i\s\|\s$'
-"
-"    autocmd FileType text :highlight tyear cterm=bold ctermfg=83
-"    autocmd Filetype text :5match tyear '^\\s\d*/\d*/\d*\s\d*:\d*:\d*\s\|\skobayash.*i\s\|\s$'
-"    autocmd Filetype text :6match tyear '^\\s\d*/\d*/\d*\s\d*:\d*:\d*\s\|\syoshitan.*i\s\|\s$'
-"augroup END
+" W で保存
+command W w
 
-"augroup  RAT_2
-    autocmd FileType text :highlight towyear cterm=bold ctermfg=4
-    autocmd Filetype text :2match towyear '^\\s\d*/\d*/\d*\s\d*:\d*:\d*\s\|\s\(kunimi\|ishikawa\|sakurai\|yoshitani\|kobayashi\)\s\|\s$'
-"    autocmd Filetype text :2match towyear '^\\s\d*/\d*/\d*\s\d*:\d*:\d*\s\|\sishikaw.*a\s\|\s$'
-"    autocmd Filetype text :3match towyear '^\\s\d*/\d*/\d*\s\d*:\d*:\d*\s\|\ssakura.*i\s\|\s$'
-"augroup END
 
-"augroup  RAT_3
-    autocmd FileType text :highlight tyear cterm=bold ctermfg=83
-    autocmd Filetype text :3match tyear '^\\s\d*/\d*/\d*\s\d*:\d*:\d*\s\|\s\(yoshitani\|kobayashi\)\s\|\s$'
-augroup END
