@@ -1,3 +1,8 @@
+filetype plugin indent on
+
+" souece $VIMRUNTIME/syntax/syntax.vim
+syntax enable
+
 "s キーを無効"
 nnoremap s <Nop>
 
@@ -9,11 +14,8 @@ set backspace =2
 "vi 互換の動作を無効
 set nocompatible
 
-" souece $VIMRUNTIME/syntax/syntax.vim
-syntax enable
-
-colorscheme desert
-"colorscheme wombat256mod
+"colorscheme desert
+colorscheme wombat256mod
 
 "行が折り返し表示されていた場合、行単位ではなく表示単位でカーソルを移動する
 "nnoremap j gj
@@ -38,7 +40,7 @@ set showmatch
 set autoread
 
 "カーソル行を強調表示する
-"set cursorline
+set cursorline
 
 "マウスを有効にする
 set mouse=a
@@ -62,13 +64,13 @@ noremap <C-a> ^
 noremap <C-l> <C-y>
 noremap <C-h> <C-e>
 
-" 前回のカーソル位置の復元
+"" 前回のカーソル位置の復元
 autocmd BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-" スクロール時の行数指定
+"" スクロール時の行数指定
 set scrolloff=5
 
-" 検索結果の対象を中央に表示
+"" 検索結果の対象を中央に表示
 nmap n nzz
 nmap N Nzz
 nmap * *zz
@@ -94,7 +96,7 @@ if has('syntax')
 endif
 
 " クリップボード共有
-set clipboard+=unnamedplus
+"set clipboard+=unnamedplus
 
 " 横分割
 nnoremap ss :<C-u>sp<CR>
@@ -120,4 +122,44 @@ command WQ wq
 " W で保存
 command W w
 
+" プラグインが実際にインストールされるディレクトリ
+let s:dein_dir = expand('~/.cache/dein')
+" dein.vim 本体
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+" dein.vim がなければ github から落としてくる
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+endif
+
+" 設定開始
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+
+  " プラグインリストを収めた TOML ファイル
+  " 予め TOML ファイル（後述）を用意しておく
+  let g:rc_dir    = expand('~/.vim/rc')
+  let s:toml      = g:rc_dir . '/dein.toml'
+  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+
+  " TOML を読み込み、キャッシュしておく
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+  " 設定終了
+  call dein#end()
+  call dein#save_state()
+endif
+
+" もし、未インストールものものがあったらインストール
+if dein#check_install()
+  call dein#install()
+endif
+
+syntax on
+
+source ~/.vim/include/RAT.vim
 
