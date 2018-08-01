@@ -5,3 +5,6 @@ branch = always
 diff = always
 status = always
 interactive = always
+[user]
+	name = cyan-yoshi
+	email = reina.yoshitani.5i@stu.hosei.ac.jp

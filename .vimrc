@@ -16,6 +16,7 @@ set nocompatible
 
 "colorscheme desert
 colorscheme wombat256mod
+"colorscheme antares
 
 "行が折り返し表示されていた場合、行単位ではなく表示単位でカーソルを移動する
 "nnoremap j gj
