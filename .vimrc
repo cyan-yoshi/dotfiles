@@ -169,7 +169,7 @@ syntax on
 
 source ~/.vim/include/RAT.vim
 
-" NeoBUndle 設定
+" NeoBundle 設定
 " 起動時にruntimepathにNeoBundleのパスを追加する
 if has('vim_starting')
   if &compatible
