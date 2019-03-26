@@ -168,6 +168,7 @@ endif
 syntax on
 
 source ~/.vim/include/RAT.vim
+source ~/.vim/include/sotsuron.vim
 
 " NeoBundle 設定
 " 起動時にruntimepathにNeoBundleのパスを追加する
