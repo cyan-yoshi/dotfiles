@@ -169,6 +169,7 @@ syntax on
 
 source ~/.vim/include/RAT.vim
 source ~/.vim/include/sotsuron.vim
+"source ~/.vim/include/record.vim
 
 " NeoBundle 設定
 " 起動時にruntimepathにNeoBundleのパスを追加する
@@ -231,3 +232,7 @@ let g:quickrun_config = {
 "\   'cmdopt': '-pdfdvi',
 "\   'exec': ['%c %o %s']
 "\ }
+
+" markdownのハイライトを有効にする
+set syntax=markdown
+au BufRead,BufNewFile *.md set filetype=markdown
