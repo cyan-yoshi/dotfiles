@@ -187,7 +187,6 @@ call neobundle#begin(expand('~/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " インストールしたいプラグインを記述
-" 下記は unite.vimというプラグインをインストールする例
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'Shougo/vimproc', {
@@ -198,6 +197,19 @@ NeoBundle 'Shougo/vimproc', {
 \ 'unix' : 'make -f make_unix.mak',
 \ },
 \ }
+
+
+" 分割 window の大きさ変更用
+NeoBundle 'kana/vim-submode'
+call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
+call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
+call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
+call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+call submode#map('bufmove', 'n', '', '<', '<C-w><')
+call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+
 
 " NeoBundle設定の終了
 call neobundle#end()
@@ -252,3 +264,4 @@ endfunc
 " markdownのハイライトを有効にする
 set syntax=markdown
 au BufRead,BufNewFile *.md set filetype=markdown
+
