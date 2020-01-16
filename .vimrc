@@ -247,18 +247,18 @@ let g:quickrun_config = {
 
 " Latex の句読点 , . に自動置換
 " 参考: https://github.com/vim-jp/issues/issues/532
-augroup filetype_latex
-    autocmd!
-    autocmd InsertCharPre *.tex call InsertCharReplace()
-augroup END
-
-func! InsertCharReplace()
-    if (v:char ==# "。")
-        let v:char = ". "
-    elseif (v:char ==# "、")
-        let v:char = ", "
-    endif
-endfunc
+"augroup filetype_latex
+"    autocmd!
+"    autocmd InsertCharPre *.tex call InsertCharReplace()
+"augroup END
+"
+"func! InsertCharReplace()
+"    if (v:char ==# "。")
+"        let v:char = ". "
+"    elseif (v:char ==# "、")
+"        let v:char = ", "
+"    endif
+"endfunc
 
 
 " markdownのハイライトを有効にする
