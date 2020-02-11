@@ -272,5 +272,10 @@ nnoremap <silent> . :bnext<CR>
 " bdで現在のバッファを削除
 nnoremap bd :bd<CR>
 
+"" git 差分関連
+" 起動時にハイライト
+let g:gitgutter_highlight_lines = 1
+" update time デフォルト 4000 ms から変更
+set updatetime=250
 
 
