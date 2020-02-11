@@ -265,3 +265,12 @@ let g:quickrun_config = {
 set syntax=markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 
+" , キーで次タブのバッファを表示
+nnoremap <silent> , :bprev<CR>
+" . キーで前タブのバッファを表示
+nnoremap <silent> . :bnext<CR>
+" bdで現在のバッファを削除
+nnoremap bd :bd<CR>
+
+
+
