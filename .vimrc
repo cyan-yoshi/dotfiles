@@ -115,13 +115,13 @@ nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
 
-" 大文字でも終了できるように
-command Q q
-command Wq wq
-command WQ wq
-
-" W で保存
-command W w
+"" 大文字でも終了できるように
+"command Q q
+"command Wq wq
+"command WQ wq
+"
+"" W で保存
+"command W w
 
 " Leader 設定
 let mapleader = "\<Space>"
@@ -171,53 +171,53 @@ source ~/.vim/include/RAT.vim
 source ~/.vim/include/sotsuron.vim
 "source ~/.vim/include/record.vim
 
-" NeoBundle 設定
-" 起動時にruntimepathにNeoBundleのパスを追加する
-if has('vim_starting')
-  if &compatible
-    set nocompatible
-  endif
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-" NeoBundle設定の開始
-call neobundle#begin(expand('~/.vim/bundle'))
-
-" NeoBundleのバージョンをNeoBundle自身で管理する
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" インストールしたいプラグインを記述
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'Shougo/vimproc', {
-\ 'build' : {
-\ 'windows' : 'make -f make_mingw32.mak',
-\ 'cygwin' : 'make -f make_cygwin.mak',
-\ 'mac' : 'make -f make_mac.mak',
-\ 'unix' : 'make -f make_unix.mak',
-\ },
-\ }
-
-
-" 分割 window の大きさ変更用
-NeoBundle 'kana/vim-submode'
-call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
-call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
-call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
-call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
-call submode#map('bufmove', 'n', '', '>', '<C-w>>')
-call submode#map('bufmove', 'n', '', '<', '<C-w><')
-call submode#map('bufmove', 'n', '', '+', '<C-w>+')
-call submode#map('bufmove', 'n', '', '-', '<C-w>-')
-
-
-" NeoBundle設定の終了
-call neobundle#end()
+"" NeoBundle 設定
+"" 起動時にruntimepathにNeoBundleのパスを追加する
+"if has('vim_starting')
+"  if &compatible
+"    set nocompatible
+"  endif
+"  set runtimepath+=~/.vim/bundle/neobundle.vim/
+"endif
+"
+"" NeoBundle設定の開始
+"call neobundle#begin(expand('~/.vim/bundle'))
+"
+"" NeoBundleのバージョンをNeoBundle自身で管理する
+"NeoBundleFetch 'Shougo/neobundle.vim'
+"
+"" インストールしたいプラグインを記述
+"NeoBundle 'Shougo/unite.vim'
+"NeoBundle 'thinca/vim-quickrun'
+"NeoBundle 'Shougo/vimproc', {
+"\ 'build' : {
+"\ 'windows' : 'make -f make_mingw32.mak',
+"\ 'cygwin' : 'make -f make_cygwin.mak',
+"\ 'mac' : 'make -f make_mac.mak',
+"\ 'unix' : 'make -f make_unix.mak',
+"\ },
+"\ }
+"
+"
+"" 分割 window の大きさ変更用
+"NeoBundle 'kana/vim-submode'
+"call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
+"call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
+"call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
+"call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+"call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+"call submode#map('bufmove', 'n', '', '<', '<C-w><')
+"call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+"call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+"
+"
+"" NeoBundle設定の終了
+"call neobundle#end()
 
 filetype plugin indent on
 
-" vim起動時に未インストールのプラグインをインストールする
-NeoBundleCheck
+"" vim起動時に未インストールのプラグインをインストールする
+"NeoBundleCheck
 
 "" Latex vim 
 " 参考: http://yuki-tkd.hateblo.jp/entry/2015/04/25/220022
@@ -278,4 +278,5 @@ nnoremap bd :bd<CR>
 " update time デフォルト 4000 ms から変更
 set updatetime=250
 
-
+"" dein のパッケージのキャッシュ削除
+"let g:dein#auto_recache=1
