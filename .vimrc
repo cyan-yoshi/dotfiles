@@ -116,12 +116,12 @@ nnoremap sL <C-w>L
 nnoremap sH <C-w>H
 
 "" 大文字でも終了できるように
-"command Q q
-"command Wq wq
-"command WQ wq
-"
-"" W で保存
-"command W w
+command Q q
+command Wq wq
+command WQ wq
+
+" W で保存
+command W w
 
 " Leader 設定
 let mapleader = "\<Space>"
@@ -201,14 +201,14 @@ source ~/.vim/include/sotsuron.vim
 "
 "" 分割 window の大きさ変更用
 "NeoBundle 'kana/vim-submode'
-"call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
-"call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
-"call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
-"call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
-"call submode#map('bufmove', 'n', '', '>', '<C-w>>')
-"call submode#map('bufmove', 'n', '', '<', '<C-w><')
-"call submode#map('bufmove', 'n', '', '+', '<C-w>+')
-"call submode#map('bufmove', 'n', '', '-', '<C-w>-')
+call submode#enter_with('bufmove', 'n', '', 's>', '<C-w>>')
+call submode#enter_with('bufmove', 'n', '', 's<', '<C-w><')
+call submode#enter_with('bufmove', 'n', '', 's+', '<C-w>+')
+call submode#enter_with('bufmove', 'n', '', 's-', '<C-w>-')
+call submode#map('bufmove', 'n', '', '>', '<C-w>>')
+call submode#map('bufmove', 'n', '', '<', '<C-w><')
+call submode#map('bufmove', 'n', '', '+', '<C-w>+')
+call submode#map('bufmove', 'n', '', '-', '<C-w>-')
 "
 "
 "" NeoBundle設定の終了
