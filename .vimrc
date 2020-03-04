@@ -270,7 +270,9 @@ nnoremap <silent> , :bprev<CR>
 " . キーで前タブのバッファを表示
 nnoremap <silent> . :bnext<CR>
 " bdで現在のバッファを削除
-nnoremap bd :bd<CR>
+"nnoremap bd :bd<CR>
+" スペース d で現在のバッファを削除
+nnoremap <Leader>d :bd<CR>
 
 "" git 差分関連
 " 起動時にハイライト
