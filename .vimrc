@@ -31,6 +31,9 @@ nnoremap gk k
 "行番号を指定する
 set number
 
+" beep 音 off
+set belloff=all
+
 "閉じ括弧が入力されたら対応する括弧を強調表示する
 set showmatch
 
